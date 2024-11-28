@@ -6,7 +6,7 @@ color bar = #7a7976;
 
 void mouseWheel(MouseEvent event) {
     // Justér scrollPosition baseret på musens scrollhjul
-    scrollPosition += event.getCount() * 20; // 10 pixels pr. trin
+    scrollPosition += event.getCount() * 20; // pixels pr. scrollklik
     // Begræns scrollPosition til sidens højde
     scrollPosition = constrain(scrollPosition, 0, pageHeight - height);
     refresh();
@@ -19,7 +19,7 @@ void scrollSkaerm(){
 
     // Tegn indholdet baseret på scrollPosition
     pushMatrix();
-    translate(0, -scrollPosition); // Flyt hele "verdenen" op/ned baseret på scrollPosition
+    translate(0, -scrollPosition); // Flyt siden
 
     // Indhold på siden
     fill(0);

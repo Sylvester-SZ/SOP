@@ -1,2 +1,2 @@
 # Dette program er lavet med formålet at undersøge brugeradfærd til brug i SOP i 3.G
-# Alt data indsamlet vil blive brugt til at danne et overblik over nogle adfærdsmønstre. Derfor er det også vigtigt at der er flere forskellige befolkningsgrupper. I er derfor velkommen til at prøve "spillet" på folk i kender og jer selv selvfølgelig.
+Alt data indsamlet vil blive brugt til at danne et overblik over nogle adfærdsmønstre. Derfor er det også vigtigt at der er flere forskellige befolkningsgrupper. I er derfor velkommen til at prøve "spillet" på folk i kender og jer selv selvfølgelig.

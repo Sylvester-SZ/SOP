@@ -7,8 +7,6 @@ color scroll = color(#ffbc04);
 ControlP5 cp5start,cp5scroll;
 
 
-
-
 void setup() {
   //fullScreen();
   size(1000, 562);

@@ -12,7 +12,7 @@
 //    println("JSON til sending: " + json);
     
 //    // HTTP POST-anmodning
-//    String urlString = "http://127.0.0.1:5000/";
+//    String urlString = "https://sylvesterz.pythonanywhere.com/";
 //    URL url = new URL(urlString);
 //    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 //    conn.setRequestMethod("POST");

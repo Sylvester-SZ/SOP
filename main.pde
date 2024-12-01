@@ -3,6 +3,9 @@ import controlP5.*;
 int skaerm = 0;
 PImage logo, murer, tomrer, mobel, mekaniker, tekniker;
 color scroll = color(#ffbc04);
+
+color backgroundcolor = color(#bab5b5);
+
 RadioButton kon;
 
 
@@ -101,6 +104,42 @@ void refresh() {
     cp5start.setVisible(false);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(true);
+    break;
+    //case 3: //
+    //  tegnskaerme(0);
+    //  cp5start.setVisible(false);
+    //  cp5intro.setVisible(false);
+    //  cp5scroll.setVisible(false);
+    //  break;
+  case 4: // Murer
+    tegnskaerme(1);
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(false);
+    break;
+  case 5: // Tømrer
+    tegnskaerme(2);
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(false);
+    break;
+  case 6: // Møbelsnedker
+    tegnskaerme(3);
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(false);
+    break;
+  case 7: // Personvognsmekaniker
+    tegnskaerme(4);
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(false);
+    break;
+  case 8: // Eventtekniker
+    tegnskaerme(5);
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(false);
     break;
   default: //missionskærm
     startskaerm();

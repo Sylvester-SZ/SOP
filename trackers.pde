@@ -31,22 +31,41 @@ void mousePressed() {
   //missiondetection
   switch(missionskaerm) {
   case 1: //Scrolling
+    if (hitbox(50, 140, width-100, 140,2)) {
+      skaerm = 4;
+      refresh();
+    }
+    else if(hitbox(50, 140*2+30*1, width-100, 140,2)){
+      skaerm = 5;
+      refresh();
+    }
+    else if(hitbox(50, 140*3+30*2, width-100, 140,2)){
+      skaerm = 6;
+      refresh();
+    }
+    else if(hitbox(50, 140*4+30*3, width-100, 140,2)){
+      skaerm = 7;
+      refresh();
+    }
+    else if(hitbox(50, 140*5+30*4, width-100, 140,2)){
+      skaerm = 8;
+      refresh();
+    }
+
     switch(missionnr) {
     case 1: // Telefonnummer
-      if (hitbox(130, 1097, 97, 17)) {
+      if (hitbox(130, 1097, 97, 17, 2)) {
         completemission();
       }
+      break;
+    case 2: // Studiestart elektriker
+      //if(hitbox(){
+
+      //}
 
       break;
-    default: //Menues
-      switch(missionnr) {
-      case 2: //Eventtekniker Studiestart
-        break;
-      default:
-      }
     }
     break;
-
   case 2: //Submenu
 
     break;
@@ -56,13 +75,13 @@ void mousePressed() {
   }
 }
 
-boolean hitbox(int x0, int y0, int x1, int y1) {
+boolean hitbox(int x0, int y0, int x1, int y1, int reqskaerm) {
   int tolerance = 2;
   x0 = x0- tolerance;
   y0 = y0- tolerance;
   x1 = x1+x0+tolerance;
   y1 = y1+y0+tolerance;
-  if ((mouseX>x0)&&(mouseX<x1)&&(realmouseY>y0)&&(realmouseY<y1)) {
+  if ((mouseX>x0)&&(mouseX<x1)&&(realmouseY>y0)&&(realmouseY<y1)&&(reqskaerm==skaerm)) {
     return true;
   } else {
     return false;

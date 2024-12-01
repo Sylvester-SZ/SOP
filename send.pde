@@ -58,7 +58,8 @@ String convertToJSON(ArrayList<HashMap<String, Integer>> data) {
     json.append("\"clickX\":").append(entry.get("clickX")).append(",");
     json.append("\"clickY\":").append(entry.get("clickY")).append(",");
     json.append("\"timestamp\":").append(entry.get("timestamp")).append(",");
-    json.append("\"mission\":").append(entry.get("mission"));
+    json.append("\"mission\":").append(entry.get("mission")).append(",");
+    json.append("\"skaerm\":").append(entry.get("skaerm"));
     json.append("}");
     if (i < data.size() - 1) json.append(",");
   }

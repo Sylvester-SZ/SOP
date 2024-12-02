@@ -22,7 +22,7 @@ void mousePressed() {
     click.put("skaerm", skaerm);
 
     clickData.add(click);
-    //println("Data tilføjet: " + click);
+    println("Data tilføjet: " + click);
   }
 
   //String data = "X:" + mouseX + ", Y:" + mouseY + ", Time:" + millis();
@@ -31,24 +31,25 @@ void mousePressed() {
   //missiondetection
   switch(missionskaerm) {
   case 1: //Scrolling
-    if (hitbox(50, 140, width-100, 140,2)) {
+    if (hitbox(50, 140, width-100, 140, 2)) {
       skaerm = 4;
+      scrollPosition = 0;
       refresh();
-    }
-    else if(hitbox(50, 140*2+30*1, width-100, 140,2)){
+    } else if (hitbox(50, 140*2+30*1, width-100, 140, 2)) {
       skaerm = 5;
+      scrollPosition = 0;
       refresh();
-    }
-    else if(hitbox(50, 140*3+30*2, width-100, 140,2)){
+    } else if (hitbox(50, 140*3+30*2, width-100, 140, 2)) {
       skaerm = 6;
+      scrollPosition = 0;
       refresh();
-    }
-    else if(hitbox(50, 140*4+30*3, width-100, 140,2)){
+    } else if (hitbox(50, 140*4+30*3, width-100, 140, 2)) {
       skaerm = 7;
+      scrollPosition = 0;
       refresh();
-    }
-    else if(hitbox(50, 140*5+30*4, width-100, 140,2)){
+    } else if (hitbox(50, 140*5+30*4, width-100, 140, 2)) {
       skaerm = 8;
+      scrollPosition = 0;
       refresh();
     }
 
@@ -58,10 +59,15 @@ void mousePressed() {
         completemission();
       }
       break;
-    case 2: // Studiestart elektriker
-      //if(hitbox(){
-
-      //}
+    case 2: // Studiestart tekniker
+      if (hitbox(60, 395, 400, 25, 8)) {
+        completemission();
+      }
+    case 3: // Tømrer Fokus
+      if (hitbox(386,268,500,20,5)
+      ){
+        completemission();
+      }
 
       break;
     }

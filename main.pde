@@ -9,7 +9,7 @@ color backgroundcolor = color(#bab5b5);
 RadioButton kon;
 
 
-ControlP5 cp5start, cp5scroll, cp5intro  ;
+ControlP5 cp5start, cp5scroll, cp5intro, cp5sider;
 
 
 void setup() {
@@ -28,6 +28,7 @@ void setup() {
   cp5start = new ControlP5(this);
   cp5scroll = new ControlP5(this);
   cp5intro = new ControlP5(this);
+  cp5sider = new ControlP5(this);
   PFont pfont = createFont("Arial", 5, true);
   ControlFont font = new ControlFont(pfont, 20);
 
@@ -73,7 +74,12 @@ void setup() {
     .setPosition(width/2.80, 320+qoffset*7)
     .setFont(font)
     .updateSize();
-
+  
+  // "scrollingsider"
+  cp5sider.addButton("tilbage")
+    .setSize(width/8, 73).setPosition(width-width/8, 1)
+    .setFont(font)
+    .setColorBackground(color(255, 188, 4));
 
 
   //Startfunktioner
@@ -91,12 +97,14 @@ void refresh() {
     introskaerm();
     cp5start.setVisible(false);
     cp5scroll.setVisible(false);
+    cp5sider.setVisible(false);
     break;
   case 1: // Mission/startskærm
     startskaerm();
     cp5start.setVisible(true);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);
+    cp5sider.setVisible(false);
     break;
   case 2: //scrollskærm
     scrollSkaerm();
@@ -104,6 +112,7 @@ void refresh() {
     cp5start.setVisible(false);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(true);
+    cp5sider.setVisible(false);
     break;
     //case 3: //
     //  tegnskaerme(0);
@@ -113,36 +122,42 @@ void refresh() {
     //  break;
   case 4: // Murer
     tegnskaerme(1);
+    cp5sider.setVisible(true);
     cp5start.setVisible(false);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);
     break;
   case 5: // Tømrer
     tegnskaerme(2);
+    cp5sider.setVisible(true);
     cp5start.setVisible(false);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);
     break;
   case 6: // Møbelsnedker
     tegnskaerme(3);
+    cp5sider.setVisible(true);
     cp5start.setVisible(false);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);
     break;
   case 7: // Personvognsmekaniker
     tegnskaerme(4);
+    cp5sider.setVisible(true);
     cp5start.setVisible(false);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);
     break;
   case 8: // Eventtekniker
     tegnskaerme(5);
+    cp5sider.setVisible(true);
     cp5start.setVisible(false);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);
     break;
   default: //missionskærm
     startskaerm();
+    cp5sider.setVisible(false);
     cp5start.setVisible(true);
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);

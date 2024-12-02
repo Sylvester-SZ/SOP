@@ -72,3 +72,12 @@ void tegnskaerme(int udd) {
   default:
   }
 }
+
+
+void tilbage(){
+  switch(missionskaerm){
+  case 1:
+    skaerm = 2;
+    refresh();
+  }
+}

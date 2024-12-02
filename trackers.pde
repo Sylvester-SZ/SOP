@@ -17,9 +17,10 @@ void mousePressed() {
     HashMap<String, Integer> click = new HashMap<>();
     click.put("clickX", mouseX);
     click.put("clickY", mouseY);
-    click.put("timestamp", millis()); // Valgfrit: inkluder en tidsstempel
+    click.put("programtime", millis()); // Valgfrit: inkluder en tidsstempel
     click.put("mission", missionnr);
     click.put("skaerm", skaerm);
+    click.put("missionstart", missionstart);
 
     clickData.add(click);
     println("Data tilføjet: " + click);
@@ -28,7 +29,52 @@ void mousePressed() {
   //String data = "X:" + mouseX + ", Y:" + mouseY + ", Time:" + millis();
   //clickData.add(data);
 
-  //missiondetection
+  // Mission Detection
+
+  switch(missionnr) {
+  case 1: // Telefonnummer
+    if (missionskaerm == 1) { // Scrolling
+      if (hitbox(130, 1097, 97, 17, 2)) {
+        completemission();
+      }
+    } else { // Submenu
+      // Tilføj submenu-specifik betingelse her, hvis nødvendigt
+    }
+    break;
+
+  case 2: // Studiestart tekniker
+    if (missionskaerm == 1) { // Scrolling
+      if (hitbox(60, 395, 400, 25, 8)) {
+        completemission();
+      }
+    } else { // Submenu
+      // Tilføj submenu-specifik betingelse her, hvis nødvendigt
+    }
+    break;
+
+  case 3: // Tømrer Fokus
+    if (missionskaerm == 1) { // Scrolling
+      if (hitbox(386, 268, 500, 20, 5)) {
+        completemission();
+      }
+    } else { // Submenu
+      // Tilføj submenu-specifik betingelse her, hvis nødvendigt
+    }
+    break;
+
+  case 4: // FN
+    if (missionskaerm == 1) { // Scrolling
+      if (hitbox(750, 1030, 90, 100, 2)) {
+        completemission();
+      }
+    } else { // Submenu
+      // Tilføj submenu-specifik betingelse her, hvis nødvendigt
+    }
+    break;
+  }
+
+
+  //Menu-navigation
   switch(missionskaerm) {
   case 1: //Scrolling
     if (hitbox(50, 140, width-100, 140, 2)) {
@@ -51,25 +97,6 @@ void mousePressed() {
       skaerm = 8;
       scrollPosition = 0;
       refresh();
-    }
-
-    switch(missionnr) {
-    case 1: // Telefonnummer
-      if (hitbox(130, 1097, 97, 17, 2)) {
-        completemission();
-      }
-      break;
-    case 2: // Studiestart tekniker
-      if (hitbox(60, 395, 400, 25, 8)) {
-        completemission();
-      }
-    case 3: // Tømrer Fokus
-      if (hitbox(386,268,500,20,5)
-      ){
-        completemission();
-      }
-
-      break;
     }
     break;
   case 2: //Submenu

@@ -1,7 +1,7 @@
 import controlP5.*;
 
 int skaerm = 0;
-PImage logo, murer, tomrer, mobel, mekaniker, tekniker;
+PImage logo, murer, tomrer, mobel, mekaniker, tekniker, verdensmaal;
 color scroll = color(#ffbc04);
 
 color backgroundcolor = color(#bab5b5);
@@ -24,6 +24,8 @@ void setup() {
   mobel = loadImage("mobelsnedker.png");
   mekaniker = loadImage("mekaniker.png");
   tekniker = loadImage("tekniker.png");
+  tekniker = loadImage("tekniker.png");
+  verdensmaal = loadImage("verdensmaal.png");
   // cp5
   cp5start = new ControlP5(this);
   cp5scroll = new ControlP5(this);

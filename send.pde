@@ -11,6 +11,8 @@ void sendCollectedData() {
     String json = convertToJSON(clickData);
     println("JSON til sending: " + json);
     
+    // once per send
+    
     // HTTP POST-anmodning
     String urlString = "https://sylvesterz.pythonanywhere.com/";
     URL url = new URL(urlString);
@@ -57,8 +59,9 @@ String convertToJSON(ArrayList<HashMap<String, Integer>> data) {
     json.append("{");
     json.append("\"clickX\":").append(entry.get("clickX")).append(",");
     json.append("\"clickY\":").append(entry.get("clickY")).append(",");
-    json.append("\"timestamp\":").append(entry.get("timestamp")).append(",");
+    json.append("\"programtime\":").append(entry.get("programtime")).append(",");
     json.append("\"mission\":").append(entry.get("mission")).append(",");
+    json.append("\"missionstart\":").append(entry.get("missionstart")).append(",");
     json.append("\"skaerm\":").append(entry.get("skaerm"));
     json.append("}");
     if (i < data.size() - 1) json.append(",");

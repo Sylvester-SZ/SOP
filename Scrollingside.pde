@@ -104,6 +104,8 @@ void scrollSkaerm() {
   //rect(130, 1097, 97, 17);
   text("EAN nr: 5798000554337\nCVR nr: 25009037", 130, 1165);
 
+  image(verdensmaal,750,1030,90,100);
+  
   popMatrix(); // Gendanner koordinatsystemet til standard
 
   // Fast del i toppen

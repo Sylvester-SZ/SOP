@@ -7,15 +7,29 @@ int missionskaerm = 0;
 int missionstart = 0;
 int missiontime = 0;
 
+ArrayList<Integer> completedMissions = new ArrayList<Integer>();
+
 String generatemission() {
-  missionnr = int(random(1, 4));
+  if (completedMissions.size() == 4) { // Hvis alle missioner er gennemført
+    return "Alle missioner er gennemført!";
+  }
+
+  int missionnr;
+  do {
+    missionnr = int(random(1, 5)); // Generer en mission mellem 1 og 4
+  } while (completedMissions.contains(missionnr)); // Sørg for, at missionen ikke er gentaget
+
+  completedMissions.add(missionnr); // Gem missionen som fuldført
+  
   switch(missionnr) {
   case 1:
     return "Find telefonnummeret for EUC Nords reception. \n Klik på nummeret som findes på hjemmesiden";
   case 2:
     return "Find studiestart for eventteknikerne. \n Klik på datoen som findes på hjemmesiden";
   case 3:
-    return "Hvad er i fokus på tømrerudannelsen? \n Klik på sætningen om foku som findes på hjemmesiden"; 
+    return "Hvad er i fokus på tømrerudannelsen? \n Klik på sætningen om fokus som findes på hjemmesiden"; 
+  case 4:
+    return "Find FN Verdensmål logoet \n Klik på logoen som findes et sted på hjemmesiden";
   default:
     return "Default state (Du har fucket up)";
   }

@@ -2,7 +2,9 @@
 int missionnr = 0;
 String mission = "";
 
-int missionskaerm = 0;
+int missioner = 5;
+
+int missionskaerm = 1;
 
 int missionstart = 0;
 int missiontime = 0;
@@ -10,16 +12,15 @@ int missiontime = 0;
 ArrayList<Integer> completedMissions = new ArrayList<Integer>();
 
 String generatemission() {
-  if (completedMissions.size() == 4) { // Hvis alle missioner er gennemført
+  if (completedMissions.size() == missioner) { // Hvis alle missioner er gennemført
     return "Alle missioner er gennemført!";
-  }
 
-  int missionnr;
+  }
+  
   do {
-    missionnr = int(random(1, 5)); // Generer en mission mellem 1 og 4
+    missionnr = int(random(1, missioner+1)); // Generer en mission mellem 1 og 4
   } while (completedMissions.contains(missionnr)); // Sørg for, at missionen ikke er gentaget
 
-  completedMissions.add(missionnr); // Gem missionen som fuldført
   
   switch(missionnr) {
   case 1:
@@ -30,6 +31,8 @@ String generatemission() {
     return "Hvad er i fokus på tømrerudannelsen? \n Klik på sætningen om fokus som findes på hjemmesiden"; 
   case 4:
     return "Find FN Verdensmål logoet \n Klik på logoen som findes et sted på hjemmesiden";
+  case 5:
+    return "Find EUC Nords EAN nummer. \n Klik på nummeret som findes på hjemmesiden";
   default:
     return "Default state (Du har fucket up)";
   }
@@ -52,11 +55,12 @@ void startskaerm() {
 }
 
 void completemission() {
+  completedMissions.add(missionnr); // Gem missionen som fuldført
   missiontime = millis() - missionstart;
   scrollPosition = 0;
   skaerm = 1;
   mission = generatemission();
-  missionskaerm = int(random(1, 3));
+  //missionskaerm = int(random(1, 3));
   println("quest completed");
   sendCollectedData();
   refresh();

@@ -16,7 +16,7 @@ void mousePressed() {
   if (skaerm!= 0) {
     HashMap<String, Integer> click = new HashMap<>();
     click.put("clickX", mouseX);
-    click.put("clickY", mouseY);
+    click.put("clickY", realmouseY);
     click.put("programtime", millis()); // Valgfrit: inkluder en tidsstempel
     click.put("mission", missionnr);
     click.put("skaerm", skaerm);
@@ -30,7 +30,9 @@ void mousePressed() {
   //clickData.add(data);
 
   // Mission Detection
-
+  println(missionskaerm);
+  println(skaerm);
+  println(missionnr);
   switch(missionnr) {
   case 1: // Telefonnummer
     if (missionskaerm == 1) { // Scrolling
@@ -65,6 +67,15 @@ void mousePressed() {
   case 4: // FN
     if (missionskaerm == 1) { // Scrolling
       if (hitbox(750, 1030, 90, 100, 2)) {
+        completemission();
+      }
+    } else { // Submenu
+      // Tilføj submenu-specifik betingelse her, hvis nødvendigt
+    }
+    break;
+  case 5: // EAN nummer
+    if (missionskaerm == 1) { // Scrolling
+      if (hitbox(130, 1155, 170, 17, 2)) {
         completemission();
       }
     } else { // Submenu

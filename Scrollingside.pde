@@ -103,6 +103,10 @@ void scrollSkaerm() {
   text("Tlf. 7224 6000\ninfo@eucnord.dk", 130, 1110);
   //rect(130, 1097, 97, 17);
   text("EAN nr: 5798000554337\nCVR nr: 25009037", 130, 1165);
+  textSize(23);
+  text("Vores historie", 430, 1030);
+  textSize(17);
+  text("EUC Nord er grundlagt i 2000, \nmen har rødder helt tilbage \nfra teknisk skole i 1864. \n\nVi er siden da blevet en \nfremtræden og moderne \nerhvervsskole",430,1060);
 
   image(verdensmaal,750,1030,90,100);
   

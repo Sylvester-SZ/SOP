@@ -76,7 +76,7 @@ void setup() {
     .setPosition(width/2.80, 320+qoffset*7)
     .setFont(font)
     .updateSize();
-  
+
   // "scrollingsider"
   cp5sider.addButton("tilbage")
     .setSize(width/8, 73).setPosition(width-width/8, 1)
@@ -107,7 +107,13 @@ void refresh() {
     cp5intro.setVisible(false);
     cp5scroll.setVisible(false);
     cp5sider.setVisible(false);
-    break;
+    if (completedMissions.size() == (missioner)) { // Hvis alle missioner er gennemført
+      cp5start.setVisible(false);
+      break;
+    } else {
+      break;
+    }
+
   case 2: //scrollskærm
     scrollSkaerm();
     drawScrollBar();
@@ -116,12 +122,13 @@ void refresh() {
     cp5scroll.setVisible(true);
     cp5sider.setVisible(false);
     break;
-    //case 3: //
-    //  tegnskaerme(0);
-    //  cp5start.setVisible(false);
-    //  cp5intro.setVisible(false);
-    //  cp5scroll.setVisible(false);
-    //  break;
+    case 3: //
+      subSkaerm();
+      cp5start.setVisible(false);
+      cp5intro.setVisible(false);
+      cp5scroll.setVisible(true);
+      cp5sider.setVisible(false);
+      break;
   case 4: // Murer
     tegnskaerme(1);
     cp5sider.setVisible(true);

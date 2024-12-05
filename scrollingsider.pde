@@ -74,10 +74,15 @@ void tegnskaerme(int udd) {
 }
 
 
-void tilbage(){
-  switch(missionskaerm){
+void tilbage() {
+  switch(missionskaerm) {
   case 1:
     skaerm = 2;
     refresh();
+    break;
+  case 2:
+    skaerm = 3;
+    refresh();
+    break;
   }
 }

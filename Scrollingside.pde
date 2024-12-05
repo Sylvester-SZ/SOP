@@ -20,6 +20,10 @@ void mouseWheel(MouseEvent event) {
 void scrollSkaerm() {
   background(240);
 
+  if(inverted){
+    verdensmaal.filter(INVERT);
+    inverted = false;
+  }
 
   // Tegn indholdet baseret på scrollPosition
   pushMatrix();

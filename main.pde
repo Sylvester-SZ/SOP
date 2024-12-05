@@ -1,19 +1,21 @@
 import controlP5.*;
 
 int skaerm = 0;
-PImage logo, murer, tomrer, mobel, mekaniker, tekniker, verdensmaal;
+PImage logo, murer, tomrer, mobel, mekaniker, tekniker, verdensmaal, arrow;
 color scroll = color(#ffbc04);
 
 color backgroundcolor = color(#bab5b5);
 
 RadioButton kon;
 
+boolean inverted = false;
 
 ControlP5 cp5start, cp5scroll, cp5intro, cp5sider;
 
 
 void setup() {
   println(140*5+30*4+140);
+  stroke(4);
   //fullScreen();
   size(1000, 562);
 
@@ -26,6 +28,9 @@ void setup() {
   tekniker = loadImage("tekniker.png");
   tekniker = loadImage("tekniker.png");
   verdensmaal = loadImage("verdensmaal.png");
+  arrow = loadImage("down-arrow.png");
+  arrow.filter(INVERT);
+  verdensmaal.filter(INVERT);
   // cp5
   cp5start = new ControlP5(this);
   cp5scroll = new ControlP5(this);
@@ -42,9 +47,7 @@ void setup() {
     .setPosition(width/2.80, (height)-height/2)
     .setFont(font)
     .updateSize();
-  cp5start.addButton("end").setSize(300, 75)
-    .setPosition(0, height-75).setFont(font)
-    .updateSize();
+  
   //scrollingside
   cp5scroll.addButton("mission")
     .setSize(width/8, 73).setPosition(width-width/8, 1)
@@ -122,13 +125,13 @@ void refresh() {
     cp5scroll.setVisible(true);
     cp5sider.setVisible(false);
     break;
-    case 3: //
-      subSkaerm();
-      cp5start.setVisible(false);
-      cp5intro.setVisible(false);
-      cp5scroll.setVisible(true);
-      cp5sider.setVisible(false);
-      break;
+  case 3: //
+    subSkaerm();
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(true);
+    cp5sider.setVisible(false);
+    break;
   case 4: // Murer
     tegnskaerme(1);
     cp5sider.setVisible(true);
@@ -159,6 +162,20 @@ void refresh() {
     break;
   case 8: // Eventtekniker
     tegnskaerme(5);
+    cp5sider.setVisible(true);
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(false);
+    break;
+  case 9: // Om os
+    omOsSkaerm();
+    cp5sider.setVisible(true);
+    cp5start.setVisible(false);
+    cp5intro.setVisible(false);
+    cp5scroll.setVisible(false);
+    break;
+  case 10: // Om os
+    tiltagSkaerm();
     cp5sider.setVisible(true);
     cp5start.setVisible(false);
     cp5intro.setVisible(false);

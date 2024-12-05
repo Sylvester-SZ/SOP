@@ -1,3 +1,7 @@
 
 clickData.txt
 click_data.json
+*.zip
+*.dll
+*.exe
+/windows-amd64

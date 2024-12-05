@@ -2,16 +2,17 @@
 int missionnr = 0;
 String mission = "";
 
-int missioner = 5;
+int missioner = 6;
 
-int missionskaerm = 1;
+int missionskaerm;
 
 int missionstart = 0;
 int missiontime = 0;
 
 ArrayList<Integer> completedMissions = new ArrayList<Integer>();
 
-String generatemission() {
+String generatemission() {'
+  missionskaerm = int(random(1,3));
   if (completedMissions.size() == missioner) { // Hvis alle missioner er gennemført
     return "Alle missioner er gennemført!";
 
@@ -33,6 +34,8 @@ String generatemission() {
     return "Find FN Verdensmål logoet \n Klik på logoen som findes et sted på hjemmesiden";
   case 5:
     return "Find EUC Nords EAN nummer. \n Klik på nummeret som findes på hjemmesiden";
+  case 6:
+    return "Find EUC Nords grundlæggelsesår. \n Klik på årstallet som findes på hjemmesiden";
   default:
     return "Default state (Du har fucket up)";
   }
@@ -70,11 +73,7 @@ void completemission() {
 
 void accepter() {
   missionstart = millis();
-  skaerm = 2;
+
+  skaerm = missionskaerm+1;
   refresh();
-}
-
-
-void end() {
-  sendCollectedData();
 }

@@ -19,7 +19,7 @@ void klar(){
       skaerm = 1;
       mission = generatemission();
       //missionskaerm = int(random(1,2));
-      missionskaerm = 1;
+      missionskaerm = 2;
       refresh();
    }
    else{

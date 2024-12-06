@@ -13,6 +13,7 @@ void subSkaerm() {
   textSize(20);
   text("Udforsk vores hjemmeside i menuerne ovenfor", 50, 160);
 
+  //image(forside,0,175, (564-175)*2.63,(564-175));
   //Variabel top
 
   switch(selected) {

@@ -5,3 +5,4 @@ click_data.json
 *.dll
 *.exe
 /windows-amd64
+*.7z

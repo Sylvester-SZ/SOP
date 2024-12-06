@@ -19,7 +19,8 @@ void omOsSkaerm(){
   text("Vores historie:", 20, 340);
   textSize(20);
   text("EUC Nord er grundlagt i 2000, men har rødder helt tilbage fra teknisk skole i 1864. \nVi er siden da blevet en fremtræden og moderne erhvervsskole",20,370);
-
+  fill(0);
+  rect(0, 500, width, 210);
 }
 
 
@@ -40,5 +41,8 @@ void tiltagSkaerm(){
   text("Tiltag:",20,125);
   textSize(25);
   text("EUC Nord er en FN-verdensmålsskole. \nDet betyder at vi aktivt arbejder som institution på verdensmålene, \nmen også bruger dem som problemstillinger i undervisningen.", 20, 170);
-  image(verdensmaal, 175, 275, 300,280);
+  image(verdensmaal, 175, 275, 230,245);
+  
+  fill(0);
+  rect(0, 500, width, 210);
 }

@@ -1,7 +1,7 @@
 import controlP5.*;
 
 int skaerm = 0;
-PImage logo, murer, tomrer, mobel, mekaniker, tekniker, verdensmaal, arrow;
+PImage logo, murer, tomrer, mobel, mekaniker, tekniker, verdensmaal, arrow, forside;
 color scroll = color(#ffbc04);
 
 color backgroundcolor = color(#bab5b5);
@@ -12,8 +12,10 @@ boolean inverted = false;
 
 ControlP5 cp5start, cp5scroll, cp5intro, cp5sider;
 
+int uniqueUserId = int(random(111111111,999999999));
 
 void setup() {
+  frameRate(150);
   println(140*5+30*4+140);
   stroke(4);
   //fullScreen();
@@ -30,7 +32,7 @@ void setup() {
   verdensmaal = loadImage("verdensmaal.png");
   arrow = loadImage("down-arrow.png");
   arrow.filter(INVERT);
-  verdensmaal.filter(INVERT);
+  forside = loadImage("forside.png");
   // cp5
   cp5start = new ControlP5(this);
   cp5scroll = new ControlP5(this);
@@ -91,10 +93,7 @@ void setup() {
   refresh();
 }
 
-void draw() {
-  realmouseY = mouseY+scrollPosition;
-  //drawScrollBar();
-}
+
 
 void refresh() {
   switch(skaerm) {

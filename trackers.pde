@@ -1,10 +1,44 @@
 int realmouseY = 0;
-
-
-//Clicktracker
 import java.util.ArrayList;
 import java.util.HashMap;
+
+int count;
+
+//MouseTracker
+
+ArrayList<HashMap<String, Integer>> mouseData = new ArrayList<>();
+
+void draw() {
+  realmouseY = mouseY+scrollPosition;
+  //drawScrollBar();
+  if (count<150) {
+    if (skaerm!= 0) {
+      HashMap<String, Integer> mouse = new HashMap<>();
+      mouse.put("mouseX", mouseX);
+      mouse.put("realmouseY", realmouseY);
+      mouse.put("programtime", millis());
+      mouse.put("mission", missionnr);
+      mouse.put("missionskaerm", missionskaerm);
+      mouse.put("skaerm", skaerm);
+      mouse.put("missionstart", missionstart);
+      mouse.put("userId", uniqueUserId);
+      mouse.put("kon", kontal);
+      mouse.put("alder", int(cp5intro.get(Textfield.class, "alder").getText()));
+
+
+      mouseData.add(mouse);
+      //println("Data tilføjet: " + mouse);
+      count++;
+    }
+  }
+
+  // Send data via POST
+}
+
+//Clicktracker
+
 ArrayList<HashMap<String, Integer>> clickData = new ArrayList<>();
+
 
 //ArrayList<String> clickData = new ArrayList<String>();
 
@@ -13,17 +47,24 @@ void mousePressed() {
   //println(hitbox(130, 1097, 97, 17));
   println(""+mouseX+","+realmouseY);
   //data//
+
   if (skaerm!= 0) {
     HashMap<String, Integer> click = new HashMap<>();
     click.put("clickX", mouseX);
     click.put("clickY", realmouseY);
-    click.put("programtime", millis()); // Valgfrit: inkluder en tidsstempel
+    click.put("programtime", millis()); // V
     click.put("mission", missionnr);
+    click.put("missionskaerm", missionskaerm);
     click.put("skaerm", skaerm);
     click.put("missionstart", missionstart);
+    click.put("userId", uniqueUserId);
+    click.put("kon", kontal);
+    click.put("alder", int(cp5intro.get(Textfield.class, "alder").getText()));
+
 
     clickData.add(click);
-    println("Data tilføjet: " + click);
+    //println("Data tilføjet: " + click);
+    count = count+1;
   }
 
   //String data = "X:" + mouseX + ", Y:" + mouseY + ", Time:" + millis();
@@ -31,9 +72,9 @@ void mousePressed() {
 
 
   // Mission Detection
-  println(missionskaerm);
-  println(skaerm);
-  println(missionnr);
+  //println(missionskaerm);
+  //println(skaerm);
+  //println(missionnr);
   switch(missionnr) {
   case 1: // Telefonnummer
     if (missionskaerm == 1) { // Scrolling
@@ -61,7 +102,7 @@ void mousePressed() {
 
   case 3: // Tømrer Fokus
     if (missionskaerm == 1) { // Scrolling
-      if (hitbox(386, 268, 500, 20, 5)) {
+      if (hitbox(386, 258, 500, 20, 5)) {
         completemission();
       }
     } else { // Submenu
@@ -77,8 +118,8 @@ void mousePressed() {
         completemission();
       }
     } else { // Submenu
-      
-       if (hitbox(175, 275, 300,280,10)) {
+
+      if (hitbox(175, 275, 300, 280, 10)) {
         completemission();
       }
     }
@@ -93,7 +134,7 @@ void mousePressed() {
         completemission();
       }
     }
-    case 6: // Grundlæggelsesår
+  case 6: // Grundlæggelsesår
     if (missionskaerm == 1) { // Scrolling
       if (hitbox(599, 1050, 12, 40, 2)) {
         completemission();
@@ -156,8 +197,8 @@ void mousePressed() {
         refresh();
       }
       break;
-        
-      case 3:
+
+    case 3:
       if (hitbox(215, 100, 190, 20, 3)) {
         skaerm = 9;
         refresh();
@@ -194,7 +235,7 @@ void mousePressed() {
 }
 
 boolean hitbox(int x0, int y0, int x1, int y1, int reqskaerm) {
-  int tolerance = 2;
+  int tolerance = 5;
   x0 = x0- tolerance;
   y0 = y0- tolerance;
   x1 = x1+x0+tolerance;

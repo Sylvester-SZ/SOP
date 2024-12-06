@@ -25,17 +25,17 @@ String generatemission() {'
   
   switch(missionnr) {
   case 1:
-    return "Find telefonnummeret for EUC Nords reception. \n Klik på nummeret som findes på hjemmesiden";
+    return "Find telefonnummeret for EUC Nords reception. \n Klik på nummeret, som findes på hjemmesiden";
   case 2:
-    return "Find studiestart for eventteknikerne. \n Klik på datoen som findes på hjemmesiden";
+    return "Find studiestart for eventteknikerne. \n Klik på datoen, som findes på hjemmesiden";
   case 3:
-    return "Hvad er i fokus på tømrerudannelsen? \n Klik på sætningen om fokus som findes på hjemmesiden"; 
+    return "Hvad er i fokus på tømrerudannelsen? \n Klik på sætningen hvor fokus bliver nævnt, som findes på hjemmesiden"; 
   case 4:
-    return "Find FN Verdensmål logoet \n Klik på logoen som findes et sted på hjemmesiden";
+    return "Find FN Verdensmål logoet \n Klik på logoet, som findes et sted på hjemmesiden";
   case 5:
-    return "Find EUC Nords EAN nummer. \n Klik på nummeret som findes på hjemmesiden";
+    return "Find EUC Nords EAN nummer. \n Klik på nummeret, som findes på hjemmesiden";
   case 6:
-    return "Find EUC Nords grundlæggelsesår. \n Klik på årstallet som findes på hjemmesiden";
+    return "Find EUC Nords grundlæggelsesår. \n Klik på årstallet, som findes på hjemmesiden";
   default:
     return "Default state (Du har fucket up)";
   }
@@ -53,11 +53,19 @@ void startskaerm() {
   textLeading(30);
   fill(#0f0f0f);
   text(""+mission, width/2, (height/2)-height/8);
+  if(missionskaerm==1){
+    text("Du vil blive ført til Scrolling-siden, når du trykker 'accepter'",width/2,(height)-height/6);
+  }
+  if(missionskaerm==2){
+    text("Du vil blive ført til siden med submenu'er, når du trykker 'accepter'",width/2,(height)-height/6);
+  }
   textAlign(LEFT);
   popMatrix();
 }
 
 void completemission() {
+  fill(0,255,0);
+  rect(0,0,1000,1200);
   completedMissions.add(missionnr); // Gem missionen som fuldført
   missiontime = millis() - missionstart;
   scrollPosition = 0;
@@ -66,6 +74,7 @@ void completemission() {
   //missionskaerm = int(random(1, 3));
   println("quest completed");
   sendCollectedData();
+  sendCollectedDatamouse();
   refresh();
 }
 

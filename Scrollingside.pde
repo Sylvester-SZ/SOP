@@ -9,7 +9,7 @@ color bar = #7a7976;
 void mouseWheel(MouseEvent event) {
   if (skaerm==2) {
     // Justér scrollPosition baseret på musens scrollhjul
-    scrollPosition += event.getCount() * 20; // pixels pr. scrollklik
+    scrollPosition += event.getCount() * 40; // pixels pr. scrollklik
     // Begræns scrollPosition til sidens højde
     scrollPosition = constrain(scrollPosition, 0, pageHeight - height);
   }
